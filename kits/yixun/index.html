@@ -2,19 +2,55 @@
 <html>
 <head>
     <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>易迅用户名转换</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.js"></script>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <!-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.bundle.min.js" integrity="sha384-pjaaA8dDz/5BgdFUPX6M/9SUZv4d12SUPF0axWc+VRZkx5xU3daN+lYb49+Ax+Tl" crossorigin="anonymous"></script> -->
     <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
     <script src="main.js"></script>
 </head>
 <body>
-    <h1>易迅用户名转换</h1>
-    <p>西安电子科技大学的小伙伴你好！欢迎使用易迅用户名转换工具。</p>
-    <p>在下方输入你的学号，就可以得到真实的用于 PPPoE 拨号的账户。于是，你就可以以在这里转换得到的用户名和身份证号后六位数作为密码，通过路由器或系统自带的拨号程序拨号上网。</p>
-    <p>本程序不会上传你的个人信息，请放心使用。</p>
-    <p>学号：<input type="text" name="student_id"></p>
-    <p><button onclick="transform()">转换</button></p>
-    <p name="answer"></p>
+    <div class="container">
+        <div class="jumbotron">
+            <h1>易迅用户名转换</h1>
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <p>西安电子科技大学的小伙伴你好！欢迎使用易迅用户名转换工具。</p>
+                <p>在下方输入你的学号，就可以得到真实的用于 PPPoE 拨号的账户。于是，你就可以以在这里转换得到的用户名和身份证号后六位数作为密码，通过路由器或系统自带的拨号程序拨号上网。</p>
+                <p>本程序不会上传你的个人信息，请放心使用。</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <form role="form">
+                    <div class="form-group">
+                            <p>你的学号：</p>
+                            <input type="text" class="form-control" id="student_id" placeholder="请输入学号">
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <button type="button" class="btn btn-primary" onclick="transform()">转换</button>
+                <button type="button" class="btn btn-default" onclick="reset()">重置</button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <p></p>
+                <div id="answer">
+                    <!-- <div class="alert alert-success">成功</div> -->
+                </div>
+            </div>
+        </div>
+        <div class="card" style="margin-top: 100px">
+            <h5>和我联系</h5>
+            <p>本程序由 Ewen Lan 编写，如果你在使用中有任何问题，你可以在 GitHub 的 <a href="https://github.com/EwenLan/EwenLan.github.io/issues" target="_blank">Issues 页面</a>提出你的疑惑和建议。也可以向 <a href="mailto:ewen_lan@outlook.com">ewen_lan@outlook.com</a> 发送邮件直接和我联系。</p>
+        </div>
+    </div>
 </body>
 </html>
