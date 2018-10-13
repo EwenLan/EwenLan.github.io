@@ -1,5 +1,5 @@
-var shop = [];
 $(document).ready(() => {
+    let shop = [];
     if (currentTime.getHours() < 11)
     {
         shop = ["竹园餐厅", "海棠餐厅", "丁香餐厅"];
