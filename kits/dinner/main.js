@@ -1,5 +1,7 @@
+var shop = [];
 $(document).ready(() => {
-    let shop = [];
+    var currentTime = new Date();
+
     if (currentTime.getHours() < 11)
     {
         shop = ["竹园餐厅", "海棠餐厅", "丁香餐厅"];
@@ -20,7 +22,6 @@ $(document).ready(() => {
     }
     var title = document.getElementById("title");
     var promotion = document.getElementById("promotion");
-    var currentTime = new Date();
     if (currentTime.getHours() < 11 && currentTime.getHours() > 4)
     {
         title.innerText = "早餐吃什么";
