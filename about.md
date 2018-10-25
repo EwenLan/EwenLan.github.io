@@ -1,7 +1,7 @@
 ---
 layout: page
-title: 关于 About
-permalink: /关于 about/
+title: About
+permalink: /about/
 ---
 
 Hi! 你好，欢迎来到我的博客。
