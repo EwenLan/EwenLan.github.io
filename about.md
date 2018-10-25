@@ -1,18 +1,17 @@
 ---
 layout: page
-title: About
-permalink: /about/
+title: 关于 About
+permalink: /关于 about/
 ---
 
-This is the base Jekyll theme. You can find out more info about customizing your Jekyll theme, as well as basic Jekyll usage documentation at [jekyllrb.com](https://jekyllrb.com/)
+Hi! 你好，欢迎来到我的博客。
 
-You can find the source code for Minima at GitHub:
-[jekyll][jekyll-organization] /
-[minima](https://github.com/jekyll/minima)
+我是 Ewen Lan，是西安电子科技大学遥感科学与技术专业的本科生。
+我会在这里分享一些我不成熟的小想法，可能会有错误或不周到的地方
+，欢迎你的斧正。
 
-You can find the source code for Jekyll at GitHub:
-[jekyll][jekyll-organization] /
-[jekyll](https://github.com/jekyll/jekyll)
-
-
-[jekyll-organization]: https://github.com/jekyll
+I am Ewen Lan, a undergraduate student of Xidian University,
+who is major in Remote Sensing Science and Technology.
+There will be some immature ideas I'd like to share with you.
+They are might be some mistakes. And I give a warm welcome to 
+your corrections.
