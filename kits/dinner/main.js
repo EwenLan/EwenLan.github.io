@@ -53,7 +53,7 @@ $(document).ready(() => {
     promotion.innerText += "中抽取一家幸运店铺。";
     // New code
     let displayed_title = document.getElementById("displayed-title");
-    let this_domain = when();
+    var this_domain = when();
     switch(this_domain)
     {
         case "breakfast": displayed_title.innerText = "早餐吃什么"; break;
@@ -61,7 +61,6 @@ $(document).ready(() => {
         case "dinner": displayed_title.innerText = "晚餐吃什么"; break;
         case "night snack": displayed_title.innerText = "夜宵吃什么"; break;
     }
-    document.getElementById("displayed_title").innerText = "你好";
 })
 function randomSelect() {
     var shop = getShop();
@@ -70,4 +69,7 @@ function randomSelect() {
     var select = Math.floor(Math.random() * numToSelect);
     var answer = document.getElementById("answer");
     answer.innerText = shop[select];
+}
+function newRandomSelect() {
+
 }
