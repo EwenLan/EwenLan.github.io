@@ -1,3 +1,9 @@
+var restaurantsList = ['a', 'b', 'c'];
+var allRestaurantsList = [
+    ["竹园餐厅", "海棠餐厅", "丁香餐厅"],
+    ["竹园餐厅", "海棠餐厅", "丁香餐厅", "膳当家黄焖鸡米饭"],
+    ["老综烤冷面", "第一佳大鸡排"]
+];
 function when(){
     var currentTime = new Date();
     if (currentTime.getHours() < 11 && currentTime.getHours() >= 4)
@@ -56,10 +62,33 @@ $(document).ready(() => {
     var this_domain = when();
     switch(this_domain)
     {
-        case "breakfast": displayed_title.innerText = "早餐吃什么"; break;
-        case "lunch": displayed_title.innerText = "午餐吃什么"; break;
-        case "dinner": displayed_title.innerText = "晚餐吃什么"; break;
-        case "night snack": displayed_title.innerText = "夜宵吃什么"; break;
+        case "breakfast": 
+            displayed_title.innerText = "早餐吃什么"; 
+            restaurantsList = allRestaurantsList[0];
+            break;
+        case "lunch": 
+            displayed_title.innerText = "午餐吃什么"; 
+            restaurantsList = allRestaurantsList[1];
+            break;
+        case "dinner": 
+            displayed_title.innerText = "晚餐吃什么"; 
+            restaurantsList = allRestaurantsList[1];
+            break;
+        case "night snack": 
+            displayed_title.innerText = "夜宵吃什么"; 
+            restaurantsList = allRestaurantsList[2];
+            break;
+    }
+    let pageRestaurantsList = document.getElementById("restaurants-list");
+    let answerDiv = document.getElementById('answer-div');
+    pageRestaurantsList.innerText = "";
+    answerDiv.innerText = "";
+    for(var i in restaurantsList) {
+        let newLi = document.createElement('li');
+        let newText = document.createTextNode(restaurantsList[i]);
+        newLi.appendChild(newText);
+        newLi.setAttribute('class', 'list-group-item');
+        pageRestaurantsList.appendChild(newLi);
     }
 })
 function randomSelect() {
@@ -71,5 +100,12 @@ function randomSelect() {
     answer.innerText = shop[select];
 }
 function newRandomSelect() {
-
+    let selection = restaurantsList[Math.floor(Math.random()*restaurantsList.length)];
+    let answerDiv = document.getElementById('answer-div');
+    answerDiv.innerText = "";
+    let newAnswer = document.createElement('div');
+    let newAnswerText = document.createTextNode(`我们的决定是：${selection}。`);
+    newAnswer.appendChild(newAnswerText);
+    newAnswer.setAttribute('class', 'alert alert-success');
+    answerDiv.appendChild(newAnswer);
 }
