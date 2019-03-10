@@ -5,14 +5,60 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>吃什么</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
-    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.js"></script>
     <script src="main.js"></script>
 </head>
-<body>
+<body style="font-family: sans-serif">
     <h1 id="title">吃什么</h1>
     <p id="promotion">点击下方的“抽取”，系统就会自动在杨铭宇黄焖鸡米饭、膳当家黄焖鸡米饭、捞起鱼生、菜饭骨头汤、锡纸排骨饭、三顾冒菜、西电小厨中抽取一家幸运店铺。</p>
     <button onclick="randomSelect()">抽取</button>
     <p id="answer"></p>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="jumbotron">
+                    <h1 id="displayed-title">吃什么</h1>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <p>为了解决每顿饭吃什么的哲学问题，于是就有了这个程序。</p>
+                <p>程序将会从下面的列表的项目中随机抽取一项为你去哪吃饭指引方向。</p>
+                <p>你也可以自由编辑列表中的内容，以满足你的需要。</p> 
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-11">
+                <ul class="list-group">
+                    <li class="list-group-item">竹园食堂</li>
+                    <li class="list-group-item">海棠食堂</li>
+                    <li class="list-group-item">丁香食堂</li>
+                </ul>
+            </div>
+            <div class="col-sm-1">
+                <div class="btn-group-vertical" role="group" aria-label="item-operation">
+                    <button type="button" class="btn btn-primary">+</button>
+                    <button type="button" class="btn btn-secondary">-</button>
+                </div>
+            </div>
+        </div>
+        <div class="row" style="margin-top: 12px">
+            <div class="col-sm-6">
+                <button type="button" class="btn btn-primary">告诉我去哪吃</button>
+            </div>
+        </div>
+        <div class="row" style="margin-top: 12px">
+            <div class="col-sm-12">
+                <div id="answer-div">
+                    <div class="alert alert-success">竹园食堂</div>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
