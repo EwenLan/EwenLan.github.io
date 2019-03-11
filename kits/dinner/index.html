@@ -44,8 +44,8 @@
             </div>
             <div class="col-sm-1">
                 <div class="btn-group-vertical" role="group" aria-label="item-operation">
-                    <button type="button" class="btn btn-primary">+</button>
-                    <button type="button" class="btn btn-secondary">-</button>
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#add-new-item-dialog">+</button>
+                    <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#remove-item-dialog">-</button>
                 </div>
             </div>
         </div>
@@ -62,5 +62,52 @@
             </div>
         </div>
     </div>
+    <div class="modal fade" id="add-new-item-dialog" aria-labelledby="add-new-modal-label" aria-hidden="true" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">增加新的餐厅</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <!-- <p>Modal body text goes here.</p> -->
+                    <p>你可以在下方的输入框中输入你想新增的餐厅</p>
+                    <input type="text" class="form-control" id="new-item-input">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">取消</button>
+                    <button type="button" class="btn btn-primary" id="add-new-item-btn" data-dismiss="modal" onclick="addNewItem()">增加</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="remove-item-dialog" aria-labelledby="remove-modal-label" aria-hidden="true" tabindex="-1" role="dialog">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">移除一家餐厅</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <!-- <p>Modal body text goes here.</p> -->
+                        <p>你可以选择你想移除的选项</p>
+                        <!-- <input type="text" class="form-control" id="new-item-input"> -->
+                        <select class="form-control" id="remove-selection">
+                            <option></option>
+                            <option>1</option>
+                            <option>2</option>
+                        </select>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">取消</button>
+                        <button type="button" class="btn btn-danger" id="remove-item-btn" data-dismiss="modal" onclick="removeItem()">移除</button>
+                    </div>
+                </div>
+            </div>
+        </div>
 </body>
 </html>

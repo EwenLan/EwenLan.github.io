@@ -34,7 +34,25 @@ function getShop(){
         case "night snack": return ["第一佳大鸡排", "新综烤冷面"];
     }
 }
+function refreshList() {
+    let pageRestaurantsList = document.getElementById("restaurants-list");
+    pageRestaurantsList.innerText = "";
+    let removeList = document.getElementById('remove-selection');
+    removeList.innerText = "";
+    for(var i in restaurantsList) {
+        let newLi = document.createElement('li');
+        let newText = document.createTextNode(restaurantsList[i]);
+        let newOptionText = document.createTextNode(restaurantsList[i]);
+        newLi.appendChild(newText);
+        newLi.setAttribute('class', 'list-group-item');
+        pageRestaurantsList.appendChild(newLi);
+        let newOption = document.createElement('option');
+        newOption.appendChild(newOptionText);
+        removeList.appendChild(newOption);
+    }
+}
 $(document).ready(() => {
+    /*
     var shop = getShop();
     var currentTime = new Date();
     var title = document.getElementById("title");
@@ -57,6 +75,7 @@ $(document).ready(() => {
         promotion.innerText += shop[shop.length - 1];
     }
     promotion.innerText += "中抽取一家幸运店铺。";
+    */
     // New code
     let displayed_title = document.getElementById("displayed-title");
     var this_domain = when();
@@ -79,17 +98,18 @@ $(document).ready(() => {
             restaurantsList = allRestaurantsList[2];
             break;
     }
-    let pageRestaurantsList = document.getElementById("restaurants-list");
+    // let pageRestaurantsList = document.getElementById("restaurants-list");
     let answerDiv = document.getElementById('answer-div');
-    pageRestaurantsList.innerText = "";
+    // pageRestaurantsList.innerText = "";
     answerDiv.innerText = "";
-    for(var i in restaurantsList) {
-        let newLi = document.createElement('li');
-        let newText = document.createTextNode(restaurantsList[i]);
-        newLi.appendChild(newText);
-        newLi.setAttribute('class', 'list-group-item');
-        pageRestaurantsList.appendChild(newLi);
-    }
+    // for(var i in restaurantsList) {
+    //     let newLi = document.createElement('li');
+    //     let newText = document.createTextNode(restaurantsList[i]);
+    //     newLi.appendChild(newText);
+    //     newLi.setAttribute('class', 'list-group-item');
+    //     pageRestaurantsList.appendChild(newLi);
+    // }
+    refreshList();
 })
 function randomSelect() {
     var shop = getShop();
@@ -108,4 +128,19 @@ function newRandomSelect() {
     newAnswer.appendChild(newAnswerText);
     newAnswer.setAttribute('class', 'alert alert-success');
     answerDiv.appendChild(newAnswer);
+}
+function addNewItem() {
+    let newItemInputBox = document.getElementById('new-item-input');
+    if(newItemInputBox.value != "") {
+        restaurantsList.push(newItemInputBox.value);
+        newItemInputBox.value = "";
+        refreshList();
+    }
+}
+function removeItem() {
+    let removeSelection = document.getElementById('remove-selection');
+    let newRestaurantsList = [];
+    for(var i in restaurantsList) {
+
+    }
 }
