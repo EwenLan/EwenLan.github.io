@@ -51,6 +51,14 @@ function refreshList() {
         removeList.appendChild(newOption);
     }
 }
+function valueInArray(value, array) {
+    for(var i in array) {
+        if(value == array[i]) {
+            return true;
+        }
+    }
+    return false;
+}
 $(document).ready(() => {
     /*
     var shop = getShop();
@@ -141,6 +149,9 @@ function removeItem() {
     let removeSelection = document.getElementById('remove-selection');
     let newRestaurantsList = [];
     for(var i in restaurantsList) {
-
+        if(restaurantsList[i] != removeSelection) {
+            newRestaurantsList.push(restaurantsList[i]);
+        }
     }
+    restaurantsList = newRestaurantsList;
 }
