@@ -1,9 +1,13 @@
 var restaurantsList = ['a', 'b', 'c'];
 var allRestaurantsList = [
     ["竹园餐厅", "海棠餐厅", "丁香餐厅"],
-    ["竹园餐厅", "海棠餐厅", "丁香餐厅", "膳当家黄焖鸡米饭"],
+    ["竹园餐厅", "海棠餐厅", "丁香餐厅", "膳当家黄焖鸡米饭", 
+    "酸菜鱼", "三顾冒菜", "干锅", "川渝私房菜", "老综肉夹馍",
+    "蘑菇爱上饭", "朵颐餐厅", "石锅拌饭", "鸡公煲", "旋转小火锅",
+    "螺蛳粉"],
     ["老综烤冷面", "第一佳大鸡排"]
 ];
+var defaultJson = "";
 function when(){
     var currentTime = new Date();
     if (currentTime.getHours() < 11 && currentTime.getHours() >= 4)
@@ -23,17 +27,17 @@ function when(){
         return "night snack";
     }
 }
-function getShop(){
-    switch(when())
-    {
-        case "breakfast": return ["竹园餐厅", "海棠餐厅", "丁香餐厅"];
-        case "lunch": return ["杨铭宇黄焖鸡米饭", "膳当家黄焖鸡米饭", "捞起鱼生", "菜饭骨头汤",
-                                "锡纸排骨饭", "三顾冒菜", "西电小厨", "蘑菇爱上饭", "刘二姐川菜", "酸菜鱼"];
-        case "dinner": return ["杨铭宇黄焖鸡米饭", "膳当家黄焖鸡米饭", "捞起鱼生", "菜饭骨头汤",
-                                "锡纸排骨饭", "三顾冒菜", "西电小厨", "蘑菇爱上饭", "刘二姐川菜", "酸菜鱼"];
-        case "night snack": return ["第一佳大鸡排", "新综烤冷面"];
-    }
-}
+// function getShop(){
+//     switch(when())
+//     {
+//         case "breakfast": return ["竹园餐厅", "海棠餐厅", "丁香餐厅"];
+//         case "lunch": return ["杨铭宇黄焖鸡米饭", "膳当家黄焖鸡米饭", "捞起鱼生", "菜饭骨头汤",
+//                                 "锡纸排骨饭", "三顾冒菜", "西电小厨", "蘑菇爱上饭", "刘二姐川菜", "酸菜鱼"];
+//         case "dinner": return ["杨铭宇黄焖鸡米饭", "膳当家黄焖鸡米饭", "捞起鱼生", "菜饭骨头汤",
+//                                 "锡纸排骨饭", "三顾冒菜", "西电小厨", "蘑菇爱上饭", "刘二姐川菜", "酸菜鱼"];
+//         case "night snack": return ["第一佳大鸡排", "新综烤冷面"];
+//     }
+// }
 function refreshList() {
     let pageRestaurantsList = document.getElementById("restaurants-list");
     pageRestaurantsList.innerText = "";
@@ -118,15 +122,32 @@ $(document).ready(() => {
     //     pageRestaurantsList.appendChild(newLi);
     // }
     refreshList();
+    let xmlhttp = new XMLHttpRequest();
+    xmlhttp.open('GET', 'default.json', true);
+    xmlhttp.send();
+    xmlhttp.onreadystatechange = () => {
+        if(xmlhttp.status == 200) {
+            defaultJson = xmlhttp.responseText;
+            
+        }
+        else {
+            let newWarning = document.createElement('div');
+            newWarning.setAttribute('class', 'alert alert-warning');
+            let newWarningText = document.createTextNode("不能从服务器上获取正确的数据，但我们可以手动填写餐厅。");
+            newWarning.appendChild(newWarningText);
+            answerDiv.appendChild(newWarning);
+        }
+    }
+    
 })
-function randomSelect() {
-    var shop = getShop();
-    var currentTime = new Date();
-    var numToSelect = shop.length;
-    var select = Math.floor(Math.random() * numToSelect);
-    var answer = document.getElementById("answer");
-    answer.innerText = shop[select];
-}
+// function randomSelect() {
+//     var shop = getShop();
+//     var currentTime = new Date();
+//     var numToSelect = shop.length;
+//     var select = Math.floor(Math.random() * numToSelect);
+//     var answer = document.getElementById("answer");
+//     answer.innerText = shop[select];
+// }
 function newRandomSelect() {
     let selection = restaurantsList[Math.floor(Math.random()*restaurantsList.length)];
     let answerDiv = document.getElementById('answer-div');
@@ -149,9 +170,10 @@ function removeItem() {
     let removeSelection = document.getElementById('remove-selection');
     let newRestaurantsList = [];
     for(var i in restaurantsList) {
-        if(restaurantsList[i] != removeSelection) {
+        if(restaurantsList[i] != removeSelection.value) {
             newRestaurantsList.push(restaurantsList[i]);
         }
     }
     restaurantsList = newRestaurantsList;
+    refreshList();
 }

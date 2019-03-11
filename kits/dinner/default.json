@@ -1,0 +1,42 @@
+{
+    "defaultList": [
+        {
+            "solutionName": "breakfast",
+            "displayName": "早餐",
+            "restaurantList": [
+                "竹园餐厅",
+                "海棠餐厅",
+                "丁香餐厅"
+            ]
+        },
+        {
+            "solutionName": "lunch&dinner",
+            "displayName": "午晚餐",
+            "restaurantList": [
+                "竹园餐厅", 
+                "海棠餐厅", 
+                "丁香餐厅", 
+                "膳当家黄焖鸡米饭", 
+                "酸菜鱼", 
+                "三顾冒菜", 
+                "干锅", 
+                "川渝私房菜", 
+                "老综肉夹馍",
+                "蘑菇爱上饭", 
+                "朵颐餐厅", 
+                "石锅拌饭", 
+                "鸡公煲", 
+                "旋转小火锅",
+                "螺蛳粉"]
+        },
+        {
+            "solutionName": "night_snack",
+            "displayName": "夜宵",
+            "restaurantList": [
+                "第一佳大鸡排",
+                "老综烤冷面",
+                "煎饼"
+            ]
+        }
+    ]
+}
